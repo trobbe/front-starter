@@ -1,0 +1,36 @@
+{
+  "name": "front-starter",
+  "version": "1.0.0",
+  "description": "Starter for front-end project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "node-sass --output-style compressed -o dist/css src/scss",
+    "uglify": "mkdir -p dist/js && uglifyjs src/js/*.js -m -o dist/js/app.js",
+    "watch:css": "onchange 'src/scss' -- npm run scss",
+    "watch:js": "onchange 'src/js' -- npm run uglify",
+    "serve": "browser-sync start --server --no-open --files 'dist/css/*.css, **/*.html'",
+    "start": "run-p serve watch:css watch:js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trobbe/front-starter.git"
+  },
+  "keywords": [
+    "starter",
+    "front"
+  ],
+  "author": "Thomas Robbe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/trobbe/front-starter/issues"
+  },
+  "homepage": "https://github.com/trobbe/front-starter#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.14",
+    "node-sass": "^5.0.0",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^7.1.0",
+    "uglify-js": "^3.13.0"
+  }
+}
